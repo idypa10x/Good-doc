@@ -15,4 +15,9 @@ class RendezVous extends Model
     public function patient(){
         return $this->belongsTo(User::class, 'patient_id');
     }
+    public function consultation()
+    {
+        return $this->hasMany(Consultation::class);
+
+    }
 }

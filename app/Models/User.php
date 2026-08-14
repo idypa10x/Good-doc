@@ -31,14 +31,10 @@ protected $guarded = [];
     {
         return $this->hasOne(DossierMedical::class);
     }
-    public function consultation()
-    {
-        return $this->hasMany(Consultation::class);
 
-    }
-public function profil()
+public function note()
 {
-    return $this->hasOne(Profil::class);
+    return $this->hasMany(Note::class);
 }
     /**
      * Get the attributes that should be cast.

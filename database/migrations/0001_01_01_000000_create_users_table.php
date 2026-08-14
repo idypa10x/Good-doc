@@ -28,7 +28,6 @@ return new class extends Migration
             $table->string('nationalite');
             $table->string('religion');
             $table->foreignId('service_id')->nullable()->constrained('services');
-            $table->foreignId('profil_id')->constrained('profils');
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->rememberToken();

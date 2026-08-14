@@ -7,12 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 class Consultation extends Model
 {
     protected $guarded = [];
-    public function medecin()
+    public function rendezvous()
     {
-        return $this->belongsTo(User::class, 'medecin_id');
+        return $this->belongsTo(RendezVous::class);
     }
-    public function patient()
-    {
-        return $this->belongsTo(User::class, 'patient_id');
-    }
+
 }

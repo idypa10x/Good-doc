@@ -29,5 +29,13 @@ class RolesAndPermissionsSeeder extends Seeder
         $addnote = Permission::create(['name' => 'ajouter note']);
         $voirnote = Permission::create(['name' => 'voir note']);
 
+        //assigner les permissions aux roles
+      //  $admin->givePermissionTo([$seeinfopatient,$confirmerrdv,$voirrdv,]);
+        $medecin->givePermissionTo([$voirrdv,$addnote,$voirnote]);
+        $infirmier->givePermissionTo([$voirrdv,$voirnote]);
+        $patient->givePermissionTo([$voirrdv,$voirnote]);
+        $secretaire->givePermissionTo([$voirrdv,$confirmerrdv]);
+
+
     }
 }
