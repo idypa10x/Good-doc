@@ -43,8 +43,7 @@ class ConsultationController extends Controller
             $consultation=request()->validate(
                 [
                     'date' => 'required',
-                    'medecin_id' => 'required',
-                    'patient_id' => 'required',
+                    'rendezvous_id' => 'required',
                     'diagnostic' => 'required',
                     'type' => 'required',
                 ]
@@ -61,7 +60,7 @@ class ConsultationController extends Controller
      */
     public function show(Consultation $consultation)
     {
-        //
+
     }
 
     /**
@@ -85,6 +84,11 @@ class ConsultationController extends Controller
      */
     public function destroy(Consultation $consultation)
     {
-        //
+        try {
+            $consultation->delete();
+            return response()->json(null, 204);
+        } catch (\Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);   
+        }
     }
 }

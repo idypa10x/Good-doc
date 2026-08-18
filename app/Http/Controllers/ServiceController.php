@@ -29,7 +29,12 @@ class ServiceController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        try {
+            $service = Service::create($request->all());
+            return response()->json($service, 201);
+        }catch ( \Exception $e) {
+            return response()->json(['error' => $e->getMessage()], 500);
+        }
     }
 
     /**
